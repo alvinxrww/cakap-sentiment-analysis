@@ -50,7 +50,7 @@ driver.quit()
 review_df = pd.DataFrame({
     "Reviews": reviews
 })
-REVIEWS_FILE_NAME = "google_reviews_no_index.csv"
+REVIEWS_FILE_NAME = "Data Collection/Google Reviews/google_reviews_no_index.csv"
 review_df.to_csv(REVIEWS_FILE_NAME, index=False)
 
 # Re-read the csv to remove empty lines because they

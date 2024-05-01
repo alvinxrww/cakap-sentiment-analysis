@@ -49,4 +49,4 @@ driver.quit()
 review_df = pd.DataFrame({
     "Reviews": reviews
 })
-review_df.to_csv("duolingo_reviews_no_index.csv", index=False)
+review_df.to_csv("Data Collection/Duolingo/duolingo_reviews_no_index.csv", index=False)
