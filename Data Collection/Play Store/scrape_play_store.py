@@ -29,7 +29,7 @@ except:
     print("Modal did not appear or could not be found.")
 
 # Scroll down to load more reviews within the modal
-for i in range(50):
+for i in range(100):
     modal_element = driver.find_element(By.CLASS_NAME, 'fysCi')
     driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight", modal_element)
     time.sleep(2) # small delay to load the review
@@ -38,15 +38,19 @@ page_source = driver.page_source
 soup = BeautifulSoup(page_source, 'html.parser')
 
 # Retrieve the reviews
-h3YV2d_elements = soup.find_all('div', class_='h3YV2d')
+review_elements = soup.find_all('div', class_='h3YV2d')
+date_elements = soup.find_all('span', class_='bp9Aid')
 
 reviews = []
-for element in h3YV2d_elements:
-    reviews.append(element.get_text())
+dates = []
+for i in range(len(review_elements)):
+    reviews.append(review_elements[i].get_text())
+    dates.append(date_elements[i].get_text())
 
 driver.quit()
 
 review_df = pd.DataFrame({
-    "Reviews": reviews
+    "Reviews": reviews,
+    "Date": dates
 })
 review_df.to_csv("Data Collection/Play Store/play_store_reviews_no_index.csv", index=False)
