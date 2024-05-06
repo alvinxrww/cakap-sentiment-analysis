@@ -30,7 +30,7 @@ except:
     print("Modal did not appear or could not be found.")
 
 # Scroll down to load more reviews within the modal
-for i in range(50):
+for i in range(30):
     modal_element = driver.find_element(By.CLASS_NAME, 'review-dialog-list')
     driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight", modal_element)
     time.sleep(2) # small delay to load the review
@@ -50,7 +50,7 @@ driver.quit()
 review_df = pd.DataFrame({
     "Reviews": reviews
 })
-REVIEWS_FILE_NAME = "Data Collection/Competitor/Titk Nol/titiknol_reviews_no_index.csv"
+REVIEWS_FILE_NAME = "Data Collection/Competitor/Titik Nol/titiknol_reviews_no_index.csv"
 review_df.to_csv(REVIEWS_FILE_NAME, index=False)
 
 # Re-read the csv to remove empty lines because they

@@ -29,7 +29,7 @@ except:
     print("Modal did not appear or could not be found.")
 
 # Scroll down to load more reviews within the modal
-for i in range(100):
+for i in range(200):
     modal_element = driver.find_element(By.CLASS_NAME, 'fysCi')
     driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight", modal_element)
     time.sleep(2) # small delay to load the review
